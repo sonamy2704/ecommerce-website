@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+@model IEnumerable<ECommerceApp.Models.Product>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+</head>
+<body>
+    <h1>Products</h1>
+    <ul>
+        @foreach (var product in Model)
+        {
+            <li>
+                <a asp-action="ProductDetails" asp-route-id="@product.Id">@product.Name</a>
+                - @product.Price.ToString("C")
+            </li>
+        }
+    </ul>
+</body>
+</html>

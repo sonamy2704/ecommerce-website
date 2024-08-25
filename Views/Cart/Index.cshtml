@@ -1,0 +1,21 @@
+@model IEnumerable<ECommerceApp.Models.CartItem>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <h1>Shopping Cart</h1>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                @item.Product.Name - @item.Quantity x @item.Product.Price.ToString("C")
+            </li>
+        }
+    </ul>
+    <p>Total: @Model.Sum(item => item.Quantity * item.Product.Price).ToString("C")</p>
+</body>
+</html>
